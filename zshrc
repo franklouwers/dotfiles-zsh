@@ -35,3 +35,5 @@ function pdf_join {
 }
 
 
+export DO_TOKEN=REPLACE_ME
+alias sshpass='ssh -o PubkeyAuthentication=no -i /dev/null'
