@@ -18,10 +18,8 @@ alias rgrep='grep -r'
 alias mtr='sudo mtr'
 unset GREP_COLORS
 export GREP_COLOR="01;32"
-export HOMEBREW_GITHUB_API_TOKEN=XXXXX
 
-# rbenv needs this
-export PATH=~/.rbenv/shims:$PATH
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Z because z
 . /usr/local/etc/profile.d/z.sh
@@ -34,6 +32,9 @@ function pdf_join {
   "$join_py" -o $output_file $@ && open $output_file
 }
 
-
-export DO_TOKEN=REPLACE_ME
 alias sshpass='ssh -o PubkeyAuthentication=no -i /dev/null'
+
+if [ -r ~/.zshrc.not.public ]
+then
+    source ~/.zshrc.not.public
+fi
